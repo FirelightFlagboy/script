@@ -1,0 +1,3 @@
+alias pool='cd ~/Documents/'
+alias normi='sh ~/Documents/script/norminette.sh'
+alias update='source ~/Documents/script/bashrc'
