@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/12 11:09:41 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/08/12 11:47:49 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ if [ -z "$1" ]
 fi
 repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 echo "\n*****************************************"
-echo "adding to repository\n\ngit add ."
+echo "adding to repository\n\n\tgit add ."
 git add .
-echo "git status\n"
+echo "\n\tgit status :\n"
 git status
-echo "\ngit commit -m '$1'\n"
+echo "\n\tgit commit -m '$1'\n"
 git commit -m "$1"
-echo "\ngit push to $repo\n"
+echo "\n\tgit push to $repo\n"
 git push
 echo "\n*****************************************\n"
