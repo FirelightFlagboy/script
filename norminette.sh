@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/02 14:36:46 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/12 10:30:27 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/08/12 13:28:50 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,8 @@ do
 	result=`norminette -R CheckForbiddenSourceHeader $1`
 	echo '\n'
 	echo "********************************************"
-	echo $(date "+TIME: %H:%M:%S") | tr -d '\n'
-	echo $result | sed $'s/Norme/\\\n&/g'
+	echo $(date "+TIME: %H:%M:%S")
+	echo $result | sed $'s/Norme/\\\n&/g' | awk '/.*\.c|.*\.h/{print}'
 	echo "********************************************"
 	echo '\n'
 	sleep 5
