@@ -13,3 +13,6 @@ groutine.sh ==> git routine
     
 norminnette.sh ==> lauch norminnette every 5sec
   in a specific directory enter in parameter
+
+compilette.sh ==> compile specfifique files with gcc and flags
+  every 5 sec
