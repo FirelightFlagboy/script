@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 14:31:23 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/12 15:57:48 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/08/12 17:39:18 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ do
 		echo "file : $var not found."
 		exit
 	fi
-	if [ ${var: -2} != ".c" ] && [ ${var: -2} != ".h" ]
+	if [ ${var: -2} != ".c" ] && [ ${var: -2} != ".h" ] && [ ${var: -2} != ".a" ]
 	then
-		echo "file : $var is not a .c or .h"
+		echo "file : $var is not a .c or .h, .a"
 		exit
 	fi
 done
@@ -34,8 +34,9 @@ while [ $true = 1 ]
 do
 	echo '\n'
 	echo "********************************************"
-	echo "$(date "+TIME: %H:%M:%S")\n"
-	echo `gcc -Wall -Wextra -Werror $@`
+	echo "$(date "+TIME: %H:%M:%S")"
+	echo "gcc -Wall -Wextra -Werror $@"
+	gcc -Wall -Wextra -Werror $@
 	echo "********************************************"
 	echo '\n'
 	sleep 5
