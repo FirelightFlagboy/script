@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/13 09:53:56 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/08/13 09:56:54 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ echo "\n\tgit status :\n"
 git status
 
 
-while [ -z $rep ] && [ $rep != 'y' ] && [ $rep != 'n' ]
+while [ "$rep" != 'y' ] && [ "$rep" != 'n' ]
 do
 	read -p "Do you want to continue ? [y/n][ENTRE] :" rep
 done
