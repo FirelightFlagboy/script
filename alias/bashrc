@@ -4,3 +4,4 @@ alias upsource='sh ~/Documents/my_script/alias/update_bashrc.sh'
 alias groutine='sh ~/Documents/my_script/script/groutine.sh'
 alias compilette="sh ~/Documents/my_script/script/compilette.sh"
 alias labo="cd ~/Documents/my_script/"
+alias quote="sh ~/Documents/my_script/script/quotilette.sh"
