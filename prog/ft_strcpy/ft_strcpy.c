@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 10:27:52 by fbenneto          #+#    #+#             */
-/*   Updated: 2017/08/24 16:54:01 by fbenneto         ###   ########.fr       */
+/*   Created: 2017/08/24 16:54:10 by fbenneto          #+#    #+#             */
+/*   Updated: 2017/08/24 17:00:41 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int		ft_strlen(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
-	return ((*str != '\0') ? 1 + ft_strlen(str + 1) : 0);
+	if (!*src)
+		return (dest);
+	*dest = *src;
+	return (ft_strcpy(dest + 1, src + 1));
 }
 
-int		main(int argc, char **argv)
+char	*ft_strncpy(char *dest, char *src, int n)
 {
-	int i;
+	if (!*src || n < 1)
+		return (dest);
+	*dest = *src;
+	return (ft_strncpy(dest + 1, src + 1, n - 1));
+}
 
-	if (argc < 2)
-		return (0);
-	i = 0;
-	while (++i < argc)
-		printf("word\t: \"%s\"\nlen\t: [%d]\n", argv[i], ft_strlen(argv[i]));
-	return (0);
+int		main(void)
+{
+	char *dest;
+	char *src;
+
+	dest = 0;
+	src = "bonjour";
+	printf("%s\n", ft_strcpy(dest, src));
 }
