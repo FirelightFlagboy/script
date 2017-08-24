@@ -1,7 +1,9 @@
 alias pool='cd ~/Documents/'
 alias normi='sh ~/Documents/my_script/script/norminette.sh'
 alias upsource='sh ~/Documents/my_script/alias/update_bashrc.sh'
+alias archive="cd ~/Documents/42_piscine_repo/"
 alias groutine='sh ~/Documents/my_script/script/groutine.sh'
 alias compilette="sh ~/Documents/my_script/script/compilette.sh"
 alias labo="cd ~/Documents/my_script/"
 alias quote="sh ~/Documents/my_script/script/quotilette.sh"
+alias cl="clear"
