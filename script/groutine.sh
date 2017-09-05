@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/13 09:56:54 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/09/05 21:36:21 by florian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ git add .
 echo "\n\tgit status :\n"
 git status
 
+echo "\t\033[0;1;31myou are going to push with this phrase >>\033[0;1;7m$1\
+\033[0;1;31m<<\033[0m\n"
 
 while [ "$rep" != 'y' ] && [ "$rep" != 'n' ]
 do
