@@ -6,18 +6,18 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/09/05 21:36:21 by florian          ###   ########.fr        #
+#    Updated: 2017/09/05 21:43:02 by florian          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/usr/bin/env bash
+repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 
 if [ -z "$1" ]
 	then
 		echo "no argument supplied, you must enter a pharse for 'git commit -m'"
 		exit
 fi
-repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 echo "\n*****************************************"
 echo "adding to repository\n\n\tgit add ."
 git add .
