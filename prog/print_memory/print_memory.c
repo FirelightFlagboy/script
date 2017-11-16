@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   print_memory.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: exam <exam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 10:58:11 by exam              #+#    #+#             */
-/*   Updated: 2017/11/14 12:44:40 by exam             ###   ########.fr       */
+/*   Updated: 2017/11/16 10:33:08 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putchar(char c);
 void	print_memory(const void *addr, size_t size);
@@ -55,7 +56,7 @@ void	print_memory(const void *addr, size_t size)
 			i++;
 		}
 		len = i - 1;
-		i = (i/2) * 5;
+		i = i*2;
 		while (i < 40)
 		{
 			ft_putchar(' ');
@@ -76,7 +77,7 @@ void	ft_putval(unsigned char *s, int max)
 	while (i < 16 && i < size)
 	{
 		c = *(s + i);
-		if (c > ' ' && c < 127)
+		if (c >= ' ' && c < 127)
 			ft_putchar(*(s + i));
 		else
 			ft_putchar('.');
