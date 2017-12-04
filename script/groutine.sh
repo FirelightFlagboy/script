@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/04 10:50:52 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/04 10:51:43 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 NC="\e[0m"
 RED="\e[31m"
 BOL="\e[1m"
+SEP="\n*****************************************\n"
 ft_end()
 {
 	printf "\n\t\t$RED$BOL END$NC\n"
-	printf "\n*****************************************\n"
+	printf $SEP
 	exit 1
 }
 
@@ -28,7 +29,7 @@ if [ -z "$1" ]
 		printf "no argument supplied, you must enter a pharse for 'git commit -m'\n"
 		exit
 fi
-printf "\n*****************************************\n"
+printf $SEP
 printf "adding to repository\n\n\tgit add .\n"
 git add .
 printf "\n\tgit status :\n"
