@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/04 10:44:34 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/04 10:47:45 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,14 @@
 repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 
 NC="\e[0m"
+RED="\e[31m"
+BOL="\e[1m"
+ft_end()
+{
+	printf "\t\t$RED$BOL END$NC\n"
+	printf "\n*****************************************\n"
+	exit 1
+}
 
 if [ -z "$1" ]
 	then
@@ -35,10 +43,10 @@ do
 done
 if [ $rep == 'n' ]
 then
-	exit 1
+	ft_end
 fi
 printf "\n\tgit commit -m '$1'\n"
 git commit -m "$1"
 printf "\n\tgit push to $repo\n"
 git push
-printf "\n*****************************************\n"
+ft_end
