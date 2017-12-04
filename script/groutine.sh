@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/04 10:50:30 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/04 10:50:52 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RED="\e[31m"
 BOL="\e[1m"
 ft_end()
 {
-	printf "\n\n\t\t$RED$BOL END$NC\n"
+	printf "\n\t\t$RED$BOL END$NC\n"
 	printf "\n*****************************************\n"
 	exit 1
 }
