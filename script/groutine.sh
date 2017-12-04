@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/04 10:53:55 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/04 10:57:14 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NC="\e[0m"
 RED="\e[31m"
 BOL="\e[1m"
 CYA="\e[36m"
+GRE="\e[32m"
 SEP="\n*****************************************\n"
 ft_end()
 {
@@ -36,7 +37,8 @@ git add .
 printf "\n\tgit status :\n"
 git status
 
-printf "\t\033[0;1;31myou are going to push with this phrase >>$CYA$BOL$1$RED<<$NC\n"
+printf "$BOL$RED"
+printf "\tyou are going to push with this phrase >>$CYA$BOL$1$RED<<$NC\n"
 
 while [ "$rep" != 'y' ] && [ "$rep" != 'n' ]
 do
@@ -46,8 +48,8 @@ if [ $rep == 'n' ]
 then
 	ft_end
 fi
-printf "\n\tgit commit -m '$1'\n\n"
+printf "\n$GRE\tgit commit -m '$1'$NC\n\n"
 git commit -m "$1"
-printf "\n\tgit push to $repo\n\n"
+printf "\n$GRE\tgit push to $repo$NC\n\n"
 git push
 ft_end
