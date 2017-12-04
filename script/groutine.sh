@@ -6,26 +6,28 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/09/05 21:43:02 by florian          ###   ########.fr        #
+#    Updated: 2017/12/04 10:44:34 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/usr/bin/env bash
 repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 
+NC="\e[0m"
+
 if [ -z "$1" ]
 	then
-		echo "no argument supplied, you must enter a pharse for 'git commit -m'"
+		printf "no argument supplied, you must enter a pharse for 'git commit -m'\n"
 		exit
 fi
-echo "\n*****************************************"
-echo "adding to repository\n\n\tgit add ."
+printf "\n*****************************************\n"
+printf "adding to repository\n\n\tgit add .\n"
 git add .
-echo "\n\tgit status :\n"
+printf "\n\tgit status :\n"
 git status
 
-echo "\t\033[0;1;31myou are going to push with this phrase >>\033[0;1;7m$1\
-\033[0;1;31m<<\033[0m\n"
+printf "\t\033[0;1;31myou are going to push with this phrase >>\\e[36m$1\
+\\e[0;1;31m<<\\e[0m\n"
 
 while [ "$rep" != 'y' ] && [ "$rep" != 'n' ]
 do
@@ -35,8 +37,8 @@ if [ $rep == 'n' ]
 then
 	exit 1
 fi
-echo "\n\tgit commit -m '$1'\n"
+printf "\n\tgit commit -m '$1'\n"
 git commit -m "$1"
-echo "\n\tgit push to $repo\n"
+printf "\n\tgit push to $repo\n"
 git push
-echo "\n*****************************************\n"
+printf "\n*****************************************\n"
