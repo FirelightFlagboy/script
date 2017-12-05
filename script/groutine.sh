@@ -6,11 +6,12 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/04 10:57:14 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/05 13:26:28 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/usr/bin/env bash
+
 repo=`git remote -v | cut -c8- | sed 's/(.*)//g'|awk 'NR==1{print $1}'`
 
 NC="\e[0m"

@@ -1,36 +1,50 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    norminette.sh                                      :+:      :+:    :+:    #
+#    work.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/08/02 14:36:46 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/05 13:26:36 by fbenneto         ###   ########.fr        #
+#    Created: 2017/12/05 13:27:02 by fbenneto          #+#    #+#              #
+#    Updated: 2017/12/05 14:00:18 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/usr/bin/env bash
 
+REPO_DIR=~/repo
+SCRIP_DIR=~/script
+
+alias	
+NC="\e[0m"
+RED="\e[31m"
+BOL="\e[1m"
+CYA="\e[36m"
+GRE="\e[32m"
+SEP="\n*****************************************\n"
+
+ft_warp()
+{
+	printf "Warp to $BOL$CYA$1$NC\n"
+
+}
+
+ft_tp()
+{
+	printf "MOVING $1\n"
+	cd $1
+}
+
 if [ -z "$1" ]
 	then
-		echo "no argument supplied"
-		exit
-fi
-if [ ! -d "$1" ]
+	ft_warp "repo folder"
+	cd $REPO_DIR
+elif [ "$1" = "script" ]
 	then
-		echo "the directory does not exist"
-		exit
+	ft_warp "$1 repo"
+elif [[ "$1" = *"/"* ]]
+	then
+	ft_warp "$1 dir"
+else
+	ft_warp "$1"
 fi
-true=1
-while [ $true = 1 ]
-do
-	result=`norminette -R CheckForbiddenSourceHeader $1`
-	echo '\n'
-	echo "********************************************"
-	echo $(date "+TIME: %H:%M:%S")
-	echo $result | sed $'s/Norme/\\\n&/g; s/Error/\\\n\\\t&/g; s/Warning/\\\n\\\t&/g'
-	echo "********************************************"
-	echo '\n'
-	sleep 5
-done

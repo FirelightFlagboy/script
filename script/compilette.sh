@@ -6,9 +6,11 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 14:31:23 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/12 17:39:18 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/05 13:26:25 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#!/usr/bin/env bash
 
 if [ $# -eq 0 ]
 	then

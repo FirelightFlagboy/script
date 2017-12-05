@@ -1,7 +1,7 @@
 alias 42checker="bash ~/42FileChecker/42FileChecker.sh"
 alias grademe="bash ~/Libftest/grademe.sh"
 alias quote="bash ~/script/script/quotilette.sh"
-alias pool="cd ~/repo"
+alias work="sh ~/script/script/work.sh"
 alias mscript="cd ~/script"
 alias groutine="bash ~/script/script/groutine.sh"
 alias norme="bash ~/script/script/norminette.sh"
