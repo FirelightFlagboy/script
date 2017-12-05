@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_memory.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <exam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 10:58:11 by exam              #+#    #+#             */
-/*   Updated: 2017/11/16 10:33:08 by fbenneto         ###   ########.fr       */
+/*   Updated: 2017/12/05 09:38:50 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	print_memory(const void *addr, size_t size)
 	s = (unsigned char*)addr;
 	t = s;
 	i = 1;
-	len = 16 * (size / 16);
+	len = 16 * (size / 16); //pour tronquer la val
 	while (len)
 	{
 		ft_puthex(*s);
@@ -37,17 +37,17 @@ void	print_memory(const void *addr, size_t size)
 		if (i % 16 == 0)
 		{
 			ft_putchar(' ');
-			ft_putval(t, -1);
+			ft_putval(t, -1);//-1 cad la taille max pour l'affichage
 			t = s;
 		}
 		else if (i % 2 == 0)
 			ft_putchar(' ');
 		i++;
 	}
-	if (size % 16 != 0)
+	if (size % 16 != 0) //si size % 16 != 0 alors il reste de bit a placer
 	{
 		i = 1;
-		while(i < (size % 16) + 1)
+		while(i < (size % 16) + 1) //place les derniere bits
 		{
 			ft_puthex(*s);
 			s++;
@@ -57,7 +57,7 @@ void	print_memory(const void *addr, size_t size)
 		}
 		len = i - 1;
 		i = i*2;
-		while (i < 40)
+		while (i < 40)		//place espace manquant
 		{
 			ft_putchar(' ');
 			i++;
