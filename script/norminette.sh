@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/02 14:36:46 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/13 14:38:39 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/13 14:50:04 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ true=1
 while [ $true = 1 ]
 do
 	result=`norminette -R CheckForbiddenSourceHeader $1`
+	clear
 	printf "********************************************\n"
 	printf "$(date "+TIME: %H:%M:%S")\n"
 	echo -e $result | sed $'s/Norme/\\\n&/g; s/Error/\\\n&/g; s/Warning/\\\n&/g' | grep -B 1 "Warning\|Error"
