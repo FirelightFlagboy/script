@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/05 13:26:28 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/29 11:09:39 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,9 @@ printf "\n\tgit status :\n"
 git status
 
 printf "$BOL$RED"
-printf "\tyou are going to push with this phrase >>$CYA$BOL$1$RED<<$NC\n"
-
+printf "\tyou are going to push with this phrase >>$CYA$BOL"
+echo -n "$1"
+printf "$RED<<$NC\n"
 while [ "$rep" != 'y' ] && [ "$rep" != 'n' ]
 do
 	read -p "Do you want to continue ? [y/n][ENTRE] :" rep
