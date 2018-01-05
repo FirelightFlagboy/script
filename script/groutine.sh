@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/05 18:46:27 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/05 18:50:29 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ft_end()
 {
 	printf "\n\t\t$RED$BOL END$NC\n"
 	printf $SEP
-    cd -
+    cd - >/dev/null
 	exit 0
 }
 
