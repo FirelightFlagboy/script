@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2017/12/29 11:09:39 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/05 18:46:27 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,19 +20,22 @@ BOL="\e[1m"
 CYA="\e[36m"
 GRE="\e[32m"
 SEP="\n*****************************************\n"
+
 ft_end()
 {
 	printf "\n\t\t$RED$BOL END$NC\n"
 	printf $SEP
-	exit 1
+    cd -
+	exit 0
 }
 
 if [ -z "$1" ]
 	then
 		printf "no argument supplied, you must enter a pharse for 'git commit -m'\n"
-		exit
+		exit 1
 fi
 printf $SEP
+cd $(git rev-parse --show-toplevel || echo ".")
 printf "adding to repository\n\n\tgit add .\n"
 git add .
 printf "\n\tgit status :\n"

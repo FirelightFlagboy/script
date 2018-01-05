@@ -1,3 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    zshrc                                              :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
+#    Updated: 2018/01/05 18:21:02 by fbenneto         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#
+# personal alias
+#
+
 alias 42checker="bash ~/42FileChecker/42FileChecker.sh"
 alias grademe="bash ~/Libftest/grademe.sh"
 alias quote="bash ~/script/script/quotilette.sh"
@@ -11,3 +27,11 @@ alias cl="clear"
 alias sl="cd ~/sl; ./sl; cd -"
 alias norme_grep="norminette | grep -B 1 'Error\|Warning'"
 alias grot="groutine"
+alias gitc="bash ~/script/script/gitc.sh"
+
+#
+# personal export
+#
+
+export USER="fbenneto"
+export MAIL="fbenneto@student.42.fr"
