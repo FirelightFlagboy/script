@@ -12,6 +12,7 @@
 
 #!/usr/bin/env bash
 
+FLAGS= -Wall -Werror -Wextra -fsyntax-only
 if [ $# -eq 0 ]
 	then
 		echo "no argument supplied"
@@ -37,8 +38,8 @@ do
 	echo '\n'
 	echo "********************************************"
 	echo "$(date "+TIME: %H:%M:%S")"
-	echo "gcc -Wall -Wextra -Werror $@"
-	gcc -Wall -Wextra -Werror $@
+	echo "gcc $FALGS $@"
+	gcc $FALGS $@
 	echo "********************************************"
 	echo '\n'
 	sleep 5

@@ -13,13 +13,13 @@
 #!/usr/bin/env bash
 #need a texte file to work
 
-texte=~/script/script/quote.txt
-if [ ! -f $texte ]
+TEXT_DIR=~/script/script/quote.txt
+if [ ! -f $TEXT_DIR ]
 then
-	echo "file : $texte not found."
+	echo "file : $TEXT_DIR not found."
 	exit
 fi
-wc=($(wc $texte))
+wc=($(wc $TEXT_DIR))
 nbline=${wc[0]}
 rand=$(( ($RANDOM % $nbline) + 1 ))
-cat $texte | awk -v r=$rand 'NR==r'
+cat $TEXT_DIR | awk -v r=$rand 'NR==r'
