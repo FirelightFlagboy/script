@@ -12,7 +12,7 @@ contain all personal alias and export var
 ```text
 all my personal script
 ```
-* check_basic.sh
+* check_basic.sh (in work)
 	* check if the dev have write the code in the good way :
 		* protected `malloc`
 		* corect `header` (username)
@@ -30,8 +30,8 @@ all my personal script
 	* run the `norminette` every 5 sec
 * quotilette.sh
 	* select a random line form a specified file see `TEXT_DIR` var
-* work.sh
-	* improved `cd` (in work)
+* work.sh (in work)
+	* improved `cd`
 * test().sh
 	* test of the command `say`
 	* test color output of the shell
