@@ -146,7 +146,3 @@ size_t ft_strlen1 (const char *str)
         }
     }
 }
-<<<<<<< HEAD
-=======
-libc_hidden_builtin_def (strlen)
->>>>>>> 4ed564475ec6287a095422feb52d5ad969745e3c
