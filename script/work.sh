@@ -1,25 +1,50 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    quotilette.sh                                      :+:      :+:    :+:    #
+#    work.sh                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/08/14 14:31:30 by fbenneto          #+#    #+#              #
-#    Updated: 2017/11/15 10:29:16 by fbenneto         ###   ########.fr        #
+#    Created: 2017/12/05 13:27:02 by fbenneto          #+#    #+#              #
+#    Updated: 2017/12/05 14:00:18 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!/usr/bin/env bash
-#need a texte file to work
 
-texte=~/script/script/quote.txt
-if [ ! -f $texte ]
-then
-	echo "file : $texte not found."
-	exit
+REPO_DIR=~/repo
+SCRIP_DIR=~/script
+
+alias	
+NC="\e[0m"
+RED="\e[31m"
+BOL="\e[1m"
+CYA="\e[36m"
+GRE="\e[32m"
+SEP="\n*****************************************\n"
+
+ft_warp()
+{
+	printf "Warp to $BOL$CYA$1$NC\n"
+
+}
+
+ft_tp()
+{
+	printf "MOVING $1\n"
+	cd $1
+}
+
+if [ -z "$1" ]
+	then
+	ft_warp "repo folder"
+	cd $REPO_DIR
+elif [ "$1" = "script" ]
+	then
+	ft_warp "$1 repo"
+elif [[ "$1" = *"/"* ]]
+	then
+	ft_warp "$1 dir"
+else
+	ft_warp "$1"
 fi
-wc=($(wc $texte))
-nbline=${wc[0]}
-rand=$(( ($RANDOM % $nbline) + 1 ))
-cat $texte | awk -v r=$rand 'NR==r'

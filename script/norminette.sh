@@ -6,11 +6,17 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/02 14:36:46 by fbenneto          #+#    #+#              #
-#    Updated: 2017/08/17 14:13:57 by fbenneto         ###   ########.fr        #
+#    Updated: 2017/12/13 14:50:04 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/bash
+#!/usr/bin/env bash
+
+NC="\e[0;0m"
+RED="\e[0;31m"
+BOL="\e[1m"
+CYA="\e[36m"
+GRE="\e[32m"
 
 if [ -z "$1" ]
 	then
@@ -26,11 +32,10 @@ true=1
 while [ $true = 1 ]
 do
 	result=`norminette -R CheckForbiddenSourceHeader $1`
-	echo '\n'
-	echo "********************************************"
-	echo $(date "+TIME: %H:%M:%S")
-	echo $result | sed $'s/Norme/\\\n&/g; s/Error/\\\n\\\t&/g; s/Warning/\\\n\\\t&/g'
-	echo "********************************************"
-	echo '\n'
+	clear
+	printf "********************************************\n"
+	printf "$(date "+TIME: %H:%M:%S")\n"
+	echo -e $result | sed $'s/Norme/\\\n&/g; s/Error/\\\n&/g; s/Warning/\\\n&/g' | grep -B 1 "Warning\|Error"
+	printf "********************************************\n\n"
 	sleep 5
 done
