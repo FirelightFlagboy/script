@@ -22,20 +22,9 @@
 #include <string.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD
 /* Return the length of the null-terminated string STR.  Scan for
    the null terminator quickly by testing four bytes at a time.  */
-size_t
-ft_strlen1 (const char *str)
-=======
-#undef strlen
-
-/* Return the length of the null-terminated string STR.  Scan for
-   the null terminator quickly by testing four bytes at a time.  */
-size_t
-strlen (str)
-     const char *str;
->>>>>>> 4ed564475ec6287a095422feb52d5ad969745e3c
+size_t ft_strlen1 (const char *str)
 {
   const char *char_ptr;
   const unsigned long int *longword_ptr;
