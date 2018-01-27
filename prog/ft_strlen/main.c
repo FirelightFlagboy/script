@@ -41,6 +41,7 @@ int		main(void)
 		benchmark(t[i++].f, s);
 	}
 	printf ("\n\n2048 s\n\n");
+	i = 0;
 	while (t[i].name)
 	{
 		printf("name :%s\n", t[i].name);
