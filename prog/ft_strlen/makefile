@@ -6,7 +6,7 @@
 #    By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 13:38:57 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/27 14:17:09 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/27 14:25:59 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,22 @@ OBJ_DIR		= ./bin/
 OBJ_NAME	= $(SRC_NAME:.c=.o)
 OBJ			= $(addprefix $(OBJ_DIR),$(OBJ_NAME))
 
+
+#########
+# MACRO #
+#########
+
+NC		= "\\033[0m"
+RED		= "\\033[31m"
+GREEN	= "\\033[32m"
+YELLOW	= "\\033[33m"
+BLUE	= "\\033[34m"
+MAJENTA	= "\\033[35m"
+CYAN	= "\\033[36m"
+BOLD	= "\\033[1m"
+CHEK	= "\\xE2\\x9C\\x94"
+OK		= "$(GREEN)$(CHEK)$(NC)"
+
 ########
 # Rule #
 ########
@@ -65,23 +81,32 @@ OBJ			= $(addprefix $(OBJ_DIR),$(OBJ_NAME))
 all : $(NAME)
 
 $(NAME) : $(OBJ_DIR) $(OBJ)
-	@printf "[$(NAME): $@] make binary"
+	@printf "[$(NAME): $@] make $(CYAN)binary$(NC)"
 	@$(CC) $(CFLAGS) -o $@ $(OBJ)
+	@printf "\t$(OK)\n"
 
 $(OBJ_DIR) :
 	@printf "[$(NAME): $@] make obj"
+	@printf "\tcreating $(GREEN)folders$(NC)"
 	@mkdir -p $@
+	@printf "\t$(OK)\n"
+	
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(INCLUDE)
+	@printf "\tcompile $(MAJENTA)$@$(NC)"
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INC)
+	@printf "\t$(OK)\n"
+	
 
 clean : $(OBJ_DIR)
-	@printf "[$(NAME): $@] clean obj file"
+	@printf "[$(NAME): $@] clean $(MAJENTA)obj file$(NC)"
 	@rm -rf $<
+	@printf "\t$(OK)\n"
 
 fclean : clean
-	@printf "[$(NAME): $@] clean binary file"
+	@printf "[$(NAME): $@] clean $(CYAN)binary file$(NC)"
 	@rm -f $(NAME)
+	@printf "\t$(OK)\n"	
 
 proper :
 	@make -C ./ all
