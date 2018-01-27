@@ -12,6 +12,20 @@
 
 #include "ft_strlen.h"
 
+t_bench		t[] =\
+{
+	{strlen, "strlen"},
+	{ft_strlen1, "ft_strlen"},
+	{ft_strlen2, "ft_strlen2"},
+	{ft_strlen_rec, "ft_strlen_rec"},
+	{ft_strlen_rec2, "ft_strlen_rec2"},
+	{ft_strlen_class, "ft_strlen_class"},
+	{ft_strlen_class2, "ft_strlen_class2"},
+	{ft_strlen_class_for, "ft_strlen_class_for"},
+	{ft_strlen_class_for, "ft_strlen_class_for2"},
+	{NULL, NULL}
+};
+
 int		main(void)
 {
 	char	*s = "bonjour";
