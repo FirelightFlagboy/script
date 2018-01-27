@@ -12,7 +12,7 @@
 
 #include "ft_strlen.h"
 
-int		main(int argc, char **argv)
+int		main(void)
 {
 	char	*s = "bonjour";
 	size_t	i = 0;
