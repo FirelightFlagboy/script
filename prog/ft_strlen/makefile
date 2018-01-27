@@ -6,7 +6,7 @@
 #    By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 13:38:57 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/27 14:56:01 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/27 14:59:59 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME = strlen_bench
 ######
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -O3
 
 ###########
 # Include #
