@@ -23,6 +23,7 @@ t_bench		t[] =\
 	{ft_strlen_class2, "ft_strlen_class2"},
 	{ft_strlen_class_for, "ft_strlen_class_for"},
 	{ft_strlen_class_for, "ft_strlen_class_for2"},
+	{my_ft_strlen, "my_ft_strlen"},
 	{NULL, NULL}
 };
 

@@ -33,5 +33,5 @@ size_t	ft_strlen_class(const char *s);			/* iterative standard one len */
 size_t	ft_strlen_class2(const char *s);		/* iterative standard one adr */
 size_t	ft_strlen_class_for(const char *s);		/* iterative standard one len */
 size_t	ft_strlen_class_for2(const char *s);	/* iterative standard one adr */
-
+size_t	my_ft_strlen (const char *str);
 #endif

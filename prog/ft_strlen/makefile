@@ -6,7 +6,7 @@
 #    By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 13:38:57 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/27 14:32:22 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/27 14:56:01 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRC_NAME	=\
 	main.c\
 	strlen_nocom.c\
 	strlen.c\
+	my_strlen.c\
 
 SRC			= $(addprefix $(SRC_DIR), $(SRC_NAME))
 
