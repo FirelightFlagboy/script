@@ -29,15 +29,20 @@ t_bench		t[] =\
 int		main(void)
 {
 	char	*s = "bonjour";
-	char	s[2048];
+	char	b[2048];
 	size_t	i = 0;
 
-	memset(s, 'e', 2048);
-	s[2047] = 0;
+	memset(b, 'e', 2048);
+	b[2047] = 0;
 	while (t[i].name)
 	{
 		printf("name :%s\n", t[i].name);
 		benchmark(t[i++].f, s);
+	}
+		while (t[i].name)
+	{
+		printf("name :%s\n", t[i].name);
+		benchmark(t[i++].f, b);
 	}
 	return (0);
 }
