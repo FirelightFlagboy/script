@@ -6,7 +6,7 @@
 /*   By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/27 13:06:32 by fbenneto          #+#    #+#             */
-/*   Updated: 2018/01/27 13:18:09 by fbenneto         ###   ########.fr       */
+/*   Updated: 2018/01/27 14:36:00 by fbenneto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		benchmark(size_t (*f)(const char *), char *s)
 	t1 = clock();
 	res = f(s);
 	t2 = clock();
-	printf ("res :%zutime 1: %ldtime 2: %ld\ndiff t2 - t1: %ld\n", res, t1, t2, t2 - t1);
+	printf ("res :%zu\ttime 1: %ld\ttime 2: %ld\ndiff t2 - t1: %ld\n", res, t1, t2, t2 - t1);
 	printf ("end\n");
 	return (0);
 }
