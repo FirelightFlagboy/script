@@ -6,7 +6,7 @@
 #    By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 13:38:57 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/27 14:28:50 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/27 14:29:36 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ $(NAME) : $(OBJ_DIR) $(OBJ)
 	@printf "\t$(OK)\n"
 
 $(OBJ_DIR) :
-	@printf "[$(NAME): $@] make obj"
+	@printf "[$(NAME): $@] make obj\n"
 	@printf "\tcreating $(GREEN)folders$(NC)"
 	@mkdir -p $@
 	@printf "\t$(OK)\n"
