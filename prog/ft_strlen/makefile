@@ -6,7 +6,7 @@
 #    By: fbenneto <f.benneto@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/27 13:38:57 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/27 13:59:52 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/01/27 14:17:09 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ INC_NAME	=\
 	ft_strlen.h
 
 INCLUDE		= $(addprefix $(INC_DIR), $(INC_NAME))
-INC			= $(addprefix "-I", $(INCLUDE))
+INC			= -I$(INC_DIR)
 
 #######
 # Src #
