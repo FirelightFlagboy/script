@@ -36,9 +36,9 @@ size_t ft_strlen2 (const char *str)
 	lomagic = 0x01010101L;
 	if (sizeof (longword) > 4)
 	{
-		magic_bits = ((0x7efefefeL << 16) << 16) | 0xfefefeffL;
-		himagic = ((0x80808080L << 16) << 16) | 0x80808080L;
-		lomagic = ((0x01010101L << 16) << 16) | 0x01010101L;
+		magic_bits = ((magic_bits << 16) << 16) | magic_bits;
+		himagic = ((himagic << 16) << 16) | himagic;
+		lomagic = ((lomagic << 16) << 16) | lomagic;
 	}
 	while (1)
 	{
