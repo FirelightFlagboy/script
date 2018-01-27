@@ -34,7 +34,7 @@ int		main(void)
 	while (t[i].name)
 	{
 		printf("name :%s\n", t[i].name);
-		benchmark(t[i++], s);
+		benchmark(t[i++].f, s);
 	}
 	return (0);
 }
