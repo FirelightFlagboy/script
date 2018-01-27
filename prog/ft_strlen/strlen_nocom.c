@@ -19,8 +19,7 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
    02111-1307 USA.  */
 
-#include <string.h>
-#include <stdlib.h>
+#include "ft_strlen.h"
 
 size_t ft_strlen2 (const char *str)
 {
