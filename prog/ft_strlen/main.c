@@ -30,10 +30,13 @@ int		main(void)
 {
 	char	*s = "bonjour";
 	char	b[2048];
+	char	p[2192144];
 	size_t	i = 0;
 
 	memset(b, 'e', 2048);
 	b[2047] = 0;
+	memset(p, 'e', 2192144);
+	p[2192143] = 0;
 	printf ("\n\nshort s\n\n");	
 	while (t[i].name)
 	{
@@ -46,6 +49,13 @@ int		main(void)
 	{
 		printf("name :%s\n", t[i].name);
 		benchmark(t[i++].f, b);
+	}
+	printf ("\n\n2192144 s\n\n");
+	i = 0;
+	while (t[i].name)
+	{
+		printf("name :%s\n", t[i].name);
+		benchmark(t[i++].f, p);
 	}
 	return (0);
 }
