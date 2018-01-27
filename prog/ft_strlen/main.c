@@ -34,12 +34,14 @@ int		main(void)
 
 	memset(b, 'e', 2048);
 	b[2047] = 0;
+	printf ("\n\nshort s\n\n");	
 	while (t[i].name)
 	{
 		printf("name :%s\n", t[i].name);
 		benchmark(t[i++].f, s);
 	}
-		while (t[i].name)
+	printf ("\n\n2048 s\n\n");
+	while (t[i].name)
 	{
 		printf("name :%s\n", t[i].name);
 		benchmark(t[i++].f, b);
