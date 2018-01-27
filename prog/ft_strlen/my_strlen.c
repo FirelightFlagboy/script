@@ -16,18 +16,23 @@ size_t	my_ft_strlen (const char *str)
 {
 	const char *char_ptr;
 	const unsigned long int *longword_ptr;
-	unsigned long int longword, himagic, lomagic;
+	unsigned long int longword;
 
-	for (char_ptr = str; ((unsigned long int) char_ptr & (sizeof (longword) - 1)) != 0; ++char_ptr)
+	// for (char_ptr = str; ((unsigned long int) char_ptr & (sizeof (longword) - 1)) != 0; ++char_ptr)
+	// 	if (*char_ptr == '\0')
+	// 		return char_ptr - str;
+	char_ptr = str;
+	while ((unsigned long int) char_ptr & (sizeof (longword) - 1))
+	{
 		if (*char_ptr == '\0')
 			return char_ptr - str;
+		char_ptr++;
+	}
 	longword_ptr = (unsigned long int *) char_ptr;
-	himagic = 0x80808080L;
-	lomagic = 0x01010101L;
 	while (1)
 	{
 		longword = *longword_ptr++;
-		if (((longword - lomagic) & himagic) != 0)
+		if (((longword - 0x01010101L) & 0x80808080L) != 0)
 		{
 			const char *cp = (const char *) (longword_ptr - 1);
 

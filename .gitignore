@@ -5,3 +5,4 @@ a.exe*
 *.exe
 *.o
 bin
+*strlen_bench
