@@ -34,6 +34,7 @@ int		main(void)
 	char	p[2192144];
 	size_t	i = 0;
 
+	printf("sizeof(unsigned long int): %zu", sizeof(unsigned long int));
 	memset(b, 'e', 2048);
 	b[2047] = 0;
 	memset(p, 'e', 2192144);
