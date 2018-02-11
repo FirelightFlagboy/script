@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/01/08 11:38:08 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/02/02 15:44:06 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ alias norme_grep="norminette | grep -B 1 'Error\|Warning'"
 alias grot="groutine"
 alias gitc="bash ~/script/script/gitc.sh"
 alias salias="cat ~/script/alias/zshrc"
+alias vi="vim"
+alias emacs="vim"
+alias gcc="clang"
 
 #
 # personal export
