@@ -17,7 +17,7 @@ init() {
 dysplay() {
 	for l in {A..Z}
 	do
-		le=letter[$l]
+		le=${letter[$l]}
 		echo "$l - $le"
 	done
 }
@@ -29,7 +29,7 @@ main() {
 		for ((i=0; i<${#line};i++))
 		do
 			le=${line:$i:1}
-			va=letter[$le]
+			va=${letter[$le]}
 			echo $va
 		done
 	done
