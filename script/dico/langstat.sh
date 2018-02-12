@@ -17,12 +17,14 @@ dysplay() {
 
 main() {
 	len=`awk 'END{print NR}' $1`
-	i="0"
+	co="0"
 	echo -e "len:$len\nbegin:"
 	for line in $(cat $1)
 	do
-		echo $line
-		for ((i=0; i<${#line};i++))
+		echo "$i / $len"
+		co=$((co+1))
+		len=${#line}
+		for ((i=0; i<len;i++))
 		do
 			le=${line:$i:1}
 			va=${letter[$le]}
