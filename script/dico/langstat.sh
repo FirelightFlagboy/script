@@ -16,28 +16,12 @@ dysplay() {
 }
 
 main() {
-	len_file=`awk 'END{print NR}' $1`
-	co="0"
-	echo -e "len:$len\nbegin:"
-	for line in $(cat $1)
+	for l in {a..z}
 	do
-		echo "$co / $len_file"
-		co=$((co+1))
-		len=${#line}
-		for ((i=0; i<len;i++))
-		do
-			le=${line:$i:1}
-			va=${letter[$le]}
-			if [ ${#va} == 0 ]
-			then
-				letter[$le]=1
-			else
-				letter[$le]=`expr "$va" + 1`
-			fi
-		done
+		cmd="fgrep -oi \"$l\"$1 | wc -l"
+		r=`$cmd`
+		echo $r
 	done
-	echo "done"
-	dysplay
 }
 
 if [ $# -eq 0 ]
