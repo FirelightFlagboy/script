@@ -15,7 +15,7 @@ dysplay() {
 		r=`echo "$le - $l"`
 		res="$res$r"
 	done
-	cmnd="echo $res | sort -k1 -n"
+	cmnd="echo $res | sort -k1 -n | sed -e 's/[a-zA-Z]/\1\n/g'"
 	eval res=\`$cmnd\`
 	echo -e "done:\n$res"
 }
