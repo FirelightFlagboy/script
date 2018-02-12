@@ -19,9 +19,9 @@ main() {
 	echo "file:$1"
 	for l in {a..z}
 	do
-		cmd="fgrep -oi \"$l\" $1 | wc -l"
-		echo $cmd
-		r=`$cmd`
+		cmnd="fgrep -oi \"$l\" $1 | wc -l"
+		echo $cmnd
+		eval r=$cmnd
 		echo $r
 	done
 }
