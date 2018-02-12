@@ -13,7 +13,7 @@ dysplay() {
 	do
 		le=${letter[$l]}
 		r=`echo "$le - $l"`
-		res="$res\n$r"
+		res="$res$r"
 	done
 	cmnd="echo $res | sort -k1 -n"
 	eval res=\`$cmnd\`
