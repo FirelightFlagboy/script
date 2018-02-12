@@ -8,19 +8,22 @@ error() {
 }
 
 dysplay() {
+	res=""
 	for l in {a..z}
 	do
 		le=${letter[$l]}
-		echo "$l - $le"
+		r=`echo "$l - $le"`
+		res="$res\n$r"
 	done
+	echo -e "done:\n$res"
 }
 
 main() {
-	echo "file:$1"
+	line="wc -l $1"
+	echo "file: $1 line: $line"
 	for l in {a..z}
 	do
 		cmnd="fgrep -oi \"$l\" $1 | wc -l"
-		echo $cmnd
 		eval r=\`$cmnd\`
 		letter[$l]=$r
 	done
