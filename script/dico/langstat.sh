@@ -16,7 +16,7 @@ dysplay() {
 }
 
 main() {
-	echo $1
+	echo "file:$1"
 	for l in {a..z}
 	do
 		cmd="fgrep -oi \"$l\" $1 | wc -l"
