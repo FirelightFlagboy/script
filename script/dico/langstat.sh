@@ -7,11 +7,18 @@ error() {
 	exit 1
 }
 
+init() {
+	for l in {A..Z}
+	do
+		letter[$l]=0
+	done
+}
+
 main() {
 	for line in $(cat $1)
 	do
 		echo $line
-		for l in $line
+		for l in $(echo $line | sed -e 's/\(.\)/1\n/g')
 		do
 			echo $l
 		done
