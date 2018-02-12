@@ -14,16 +14,25 @@ init() {
 	done
 }
 
+dysplay() {
+	for l in {A..Z}
+	do
+		echo letter[$l]
+	done
+}
+
 main() {
+	init
 	for line in $(cat $1)
 	do
-		echo $line
 		for ((i=0; i<${#line};i++))
 		do
 			le=${line:$i:1}
-			echo $le
+			va=letter[$le]
+			letter[$le]=`expr "$va" + "1"`
 		done
 	done
+	dysplay
 }
 
 if [ $# -eq 0 ]
