@@ -20,7 +20,8 @@ main() {
 		echo $line
 		for ((i=0; i<${#line};i++))
 		do
-			echo "${line:$i:1}"
+			le=${line:$i:1}
+			echo $le
 		done
 	done
 }
