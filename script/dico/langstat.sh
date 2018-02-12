@@ -16,12 +16,12 @@ dysplay() {
 }
 
 main() {
-	len=`wc -l $1`
+	len=`awk 'END{print NR}' $1`
 	i="0"
 	echo -e "len:$len\nbegin:"
 	for line in $(cat $1)
 	do
-		pr=`expr ( "$i" / "$len" ) * 100`
+		pr=`expr 100 * "$i" / "$len"`
 		echo $pr
 		for ((i=0; i<${#line};i++))
 		do
