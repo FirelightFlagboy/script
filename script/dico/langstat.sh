@@ -11,6 +11,10 @@ main() {
 	for line in $(cat $1)
 	do
 		echo $line
+		for l in $line
+		do
+			echo $l
+		done
 	done
 }
 
