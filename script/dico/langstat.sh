@@ -21,7 +21,7 @@ main() {
 	do
 		cmnd="fgrep -oi \"$l\" $1 | wc -l"
 		echo $cmnd
-		eval r=$cmnd
+		eval r=\`$cmnd\`
 		echo $r
 	done
 }
