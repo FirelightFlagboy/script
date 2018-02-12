@@ -12,14 +12,16 @@ dysplay() {
 	for l in {a..z}
 	do
 		le=${letter[$l]}
-		r=`echo "$l - $le"`
+		r=`echo "$le - $l"`
 		res="$res\n$r"
 	done
+	cmnd="echo $res | sort -k1 -n"
+	eval res=\`$cmnd\`
 	echo -e "done:\n$res"
 }
 
 main() {
-	line="wc -l $1"
+	line=`wc -l $1`
 	echo "file: $1 line: $line"
 	for l in {a..z}
 	do
