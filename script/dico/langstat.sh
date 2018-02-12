@@ -21,9 +21,7 @@ main() {
 	echo -e "len:$len\nbegin:"
 	for line in $(cat $1)
 	do
-		pr=`expr 100 \* "$i" / "$len"`
-		echo "[$pr]:$i / $len"
-		i=`expr "$i" + 1`
+		echo $line
 		for ((i=0; i<${#line};i++))
 		do
 			le=${line:$i:1}
