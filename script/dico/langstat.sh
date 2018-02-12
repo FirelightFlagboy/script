@@ -20,6 +20,7 @@ main() {
 	for l in {a..z}
 	do
 		cmd="fgrep -oi \"$l\" $1 | wc -l"
+		echo $cmd
 		r=`$cmd`
 		echo $r
 	done
