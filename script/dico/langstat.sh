@@ -16,12 +16,12 @@ dysplay() {
 }
 
 main() {
-	len=`awk 'END{print NR}' $1`
+	len_file=`awk 'END{print NR}' $1`
 	co="0"
 	echo -e "len:$len\nbegin:"
 	for line in $(cat $1)
 	do
-		echo "$i / $len"
+		echo "$co / $len_file"
 		co=$((co+1))
 		len=${#line}
 		for ((i=0; i<len;i++))
