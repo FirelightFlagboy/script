@@ -10,14 +10,15 @@ error() {
 init() {
 	for l in {A..Z}
 	do
-		letter[$l]=0
+		letter[$l]="0"
 	done
 }
 
 dysplay() {
 	for l in {A..Z}
 	do
-		echo letter[$l]
+		le=letter[$l]
+		echo "$l - $le"
 	done
 }
 
@@ -29,7 +30,7 @@ main() {
 		do
 			le=${line:$i:1}
 			va=letter[$le]
-			letter[$le]=`expr "$va" + "1"`
+			echo $va
 		done
 	done
 	dysplay
