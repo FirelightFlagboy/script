@@ -39,3 +39,4 @@ alias gcc="clang"
 
 export USER="fbenneto"
 export MAIL="fbenneto@student.42.fr"
+alias temp="/opt/vc/bin/vcgencmd measure_temp"
