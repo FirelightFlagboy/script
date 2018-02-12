@@ -18,10 +18,8 @@ main() {
 	for line in $(cat $1)
 	do
 		echo $line
-		for l in $("echo $line | sed -e 's/\(.\)/1\n/g'")
-		do
-			echo $l
-		done
+		le=`echo $line | sed -s 's/\(.\)/1\n/g'`
+		echo $le
 	done
 }
 
