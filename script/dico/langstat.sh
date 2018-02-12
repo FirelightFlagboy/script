@@ -16,8 +16,13 @@ dysplay() {
 }
 
 main() {
+	len=`wc -l $1`
+	i="0"
+	echo -e "len:$len\nbegin:"
 	for line in $(cat $1)
 	do
+		pr=`expr ($i/$len)*100`
+		echo $pr
 		for ((i=0; i<${#line};i++))
 		do
 			le=${line:$i:1}
@@ -28,12 +33,9 @@ main() {
 			else
 				letter[$le]=`expr "$va" + 1`
 			fi
-			if [ $? != 0 ]
-			then
-				echo "^^^ va:$va le:$le ${letter[$le]}"
-			fi
 		done
 	done
+	echo "done"
 	dysplay
 }
 
