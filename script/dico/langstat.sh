@@ -31,6 +31,10 @@ main() {
 			le=${line:$i:1}
 			va=${letter[$le]}
 			letter[$le]=`expr "$va" + 1`
+			if [ $? != 0 ]
+			then
+				echo "^^^ $va $le ${letter[$le]}"
+			fi
 		done
 	done
 	dysplay
