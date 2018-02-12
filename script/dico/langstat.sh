@@ -8,7 +8,7 @@ error() {
 }
 
 dysplay() {
-	for l in {A..Z}
+	for l in {a..z}
 	do
 		le=${letter[$l]}
 		echo "$l - $le"
@@ -22,8 +22,9 @@ main() {
 		cmnd="fgrep -oi \"$l\" $1 | wc -l"
 		echo $cmnd
 		eval r=\`$cmnd\`
-		echo $r
+		letter[$l]=$r
 	done
+	dysplay
 }
 
 if [ $# -eq 0 ]
