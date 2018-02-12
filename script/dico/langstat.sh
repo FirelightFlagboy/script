@@ -18,7 +18,7 @@ dysplay() {
 main() {
 	for l in {a..z}
 	do
-		cmd="fgrep -oi \"$l\"$1 | wc -l"
+		cmd="fgrep -oi \"$l\" $1 | wc -l"
 		r=`$cmd`
 		echo $r
 	done
