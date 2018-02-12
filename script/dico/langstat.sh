@@ -30,7 +30,7 @@ main() {
 		do
 			le=${line:$i:1}
 			va=${letter[$le]}
-			echo $va
+			letter[$le]=`expr "$va" + 1`
 		done
 	done
 	dysplay
