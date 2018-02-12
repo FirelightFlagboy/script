@@ -7,13 +7,6 @@ error() {
 	exit 1
 }
 
-init() {
-	for l in {A..Z}
-	do
-		letter[$l]="0"
-	done
-}
-
 dysplay() {
 	for l in {A..Z}
 	do
@@ -23,17 +16,21 @@ dysplay() {
 }
 
 main() {
-	init
 	for line in $(cat $1)
 	do
 		for ((i=0; i<${#line};i++))
 		do
 			le=${line:$i:1}
 			va=${letter[$le]}
-			letter[$le]=`expr "$va" + 1`
+			if [ ${#va} == 0 ]
+			then
+				letter[$le]=1
+			else
+				letter[$le]=`expr "$va" + 1`
+			fi
 			if [ $? != 0 ]
 			then
-				echo "^^^ $va $le ${letter[$le]}"
+				echo "^^^ va:$va le:$le ${letter[$le]}"
 			fi
 		done
 	done
