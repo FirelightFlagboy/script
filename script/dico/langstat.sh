@@ -37,14 +37,13 @@ create_cvs() {
 }
 
 create_line() {
-	i=0
-	printf "$res\n"
-	for l in {a..z}; do
-		cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
-		eval cr=\`$cmnd\`
-		printf "$i $l $cr\n"
-		i=$(($i+1))
+	for i in {0..19}; done
+		for l in {a..z}; do
+			cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
+			eval cr=\`$cmnd\`
+		done
 	done
+
 }
 
 graphique() {
