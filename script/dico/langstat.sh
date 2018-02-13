@@ -36,21 +36,29 @@ create_cvs() {
 	exit 0
 }
 
+create_line() {
+	i=0
+	for l in {a..z}; do
+		cmnd="echo $res | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
+		eval cr=\`$cmnd\`
+		echo $cr
+		i=$(($i+1))
+	done
+}
+
 graphique() {
+	array_line=("o" "o")
 	echo "" > output
-	echo "100|" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "50 |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "   |" >> output
-	echo "0  |____________________________________________________________________________" >> output
+	create_line
+	for i in {0..19}; do
+		if [ $i -eq 0 ] || [ $i -eq 9 ] || [ $i -eq 19]; then
+			n=$(((i + 1) * 5))
+			printf "%-3d" $n >> output
+		else
+			echo "   " >> output
+		fi
+		echo "|${array_line[$i]}" >> output
+	done
 	echo "   |a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z" >> output
 }
 
