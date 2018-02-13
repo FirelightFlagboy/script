@@ -66,7 +66,7 @@ main() {
 		pidc=$!
 		# wait $pidc
 	fi
-	if [ gr -eq 1 ]; then
+	if [ $gr -eq 1 ]; then
 		graphique &
 		pidg=$!
 	fi
