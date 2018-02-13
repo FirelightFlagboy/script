@@ -30,10 +30,14 @@ create_cvs() {
 	cmnd="printf \"$res\" | sed -e \"s/ - /-/g\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | sed -e \"s/^[ ]*//\" | sed -e \"s/^\(.*\)-\(.*\)$/\2-\1/g\""
 	eval res=\`$cmnd\`
 	echo "letter, count" > $csv_file
-	for line in $res; do
-		echo $line | sed -e "s/-/, /" >> $csv_file
+	for l in $res; do
+		echo $l | sed -e "s/-/, /" >> $csv_file
 	done
 	exit 0
+}
+
+graphique() {
+	nb_l=`wc -c`
 }
 
 work() {
@@ -50,7 +54,10 @@ work() {
 main() {
 	cmnd="awk 'END{print NR}' $file"
 	eval line=\`$cmnd\`
-	echo "file: $file line: $line"
+	cmnd="wc -c $file | sed -e \"s/ .*//g\""
+	eval nb_c=\`$cmnd\`
+	nb_c=$(($nb_c - $line))
+	echo "file: $file line: $line number of letter:$nb_c"
 	work
 	dysplay &
 	pidd=$!
