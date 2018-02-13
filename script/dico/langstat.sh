@@ -73,6 +73,16 @@ work() {
 	eval res=\`$cmnd\`
 }
 
+ft_wait() {
+	wait $pidd
+	if [ $csv -eq 1 ]; then
+		wait $pidg
+	fi
+	if [ $gr - eq 1]; then
+		wait $pidc
+	fi
+}
+
 main() {
 	cmnd="awk 'END{print NR}' $file"
 	eval line=\`$cmnd\`
@@ -86,13 +96,12 @@ main() {
 	if [ $csv -eq 1 ]; then
 		create_cvs &
 		pidc=$!
-		# wait $pidc
 	fi
 	if [ $gr -eq 1 ]; then
 		graphique &
 		pidg=$!
 	fi
-	# wait $pidd
+	ft_wait
 }
 
 while test $# -gt 0; do
