@@ -78,7 +78,7 @@ ft_wait() {
 	if [ $csv -eq 1 ]; then
 		wait $pidc
 	fi
-	if [ $gr - eq 1 ]; then
+	if [ $gr -eq 1 ]; then
 		wait $pidg
 	fi
 }
