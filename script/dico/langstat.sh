@@ -37,7 +37,7 @@ create_cvs() {
 }
 
 graphique() {
-	nb_l=`wc -c`
+	echo "	a	b	c	d	e	f	g	h	i	j	k	l	m	n	o	p	q	r	s	t	u	v	w	x	y	z"
 }
 
 work() {
@@ -64,9 +64,13 @@ main() {
 	if [ $csv -eq 1 ]; then
 		create_cvs &
 		pidc=$!
-		wait $pidc
+		# wait $pidc
 	fi
-	wait $pidd
+	if [ gr -eq 1 ]; then
+		graphique &
+		pidg=$!
+	fi
+	# wait $pidd
 }
 
 while test $# -gt 0; do
