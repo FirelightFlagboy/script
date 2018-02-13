@@ -37,9 +37,21 @@ create_cvs() {
 }
 
 graphique() {
-	echo "" > ouput
-	echo "______________________________________________________________________________" >> output
-	echo "  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z" >> output
+	echo "" > output
+	echo "100|" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "50 |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "   |" >> output
+	echo "0  |____________________________________________________________________________" >> output
+	echo "   |a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z" >> output
 }
 
 work() {
