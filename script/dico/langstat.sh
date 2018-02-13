@@ -76,10 +76,10 @@ work() {
 ft_wait() {
 	wait $pidd
 	if [ $csv -eq 1 ]; then
-		wait $pidg
-	fi
-	if [ $gr - eq 1]; then
 		wait $pidc
+	fi
+	if [ $gr - eq 1 ]; then
+		wait $pidg
 	fi
 }
 
