@@ -40,7 +40,7 @@ create_line() {
 	i=0
 	printf "$res"
 	for l in {a..z}; do
-		cmnd="printf \"$res\" | grep -i \"$l\""
+		cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\""
 		#  | sed \"s/[^0-9]*//g\"
 		# printf "$cmnd\n"
 		eval cr=\`$cmnd\`
