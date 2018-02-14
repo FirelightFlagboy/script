@@ -37,29 +37,48 @@ create_cvs() {
 }
 
 create_line() {
-	for i in {0..19}; done
-		for l in {a..z}; do
-			cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
-			eval cr=\`$cmnd\`
-		done
+	tab_l=()
+	for l in {a..z}; do
+		cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
+		eval cr=\`$cmnd\`
+		tab_l+=($cr)
 	done
-
+	echo "done nb"
+	for l in ${tab_l[@]}; do
+		echo "$l"
+	done
+	for i in {0..25}; do
+		echo "i:$i tab:${tab_l[$i]} nb_c:$nb_c"
+		tab_l[$i]=$((${tab_l[$i]}*100/$nb_c))
+	done
+	echo "done %"
+	for l in ${tab_l[@]}; do
+		echo "$l"
+	done
 }
 
 graphique() {
-	array_line=("o" "o")
+	array_line=()
 	echo "" > output
 	create_line
 	for i in {0..19}; do
-		if [ $i -eq 0 ] || [ $i -eq 9 ] || [ $i -eq 19 ]; then
-			n=$(((i + 1) * 5))
-			printf "%-3d" $n >> output
-		else
-			echo "   " >> output
-		fi
+		case "$i" in
+			"0")
+				echo -n "100" >> output
+				;;
+			"9")
+				echo -n "50 " >> output
+				;;
+			"19")
+				echo -n "0  " >> output
+				;;
+			*)
+				echo -n "   " >> output
+				;;
+		esac
 		echo "|${array_line[$i]}" >> output
 	done
-	echo "   |a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s  t  u  v  w  x  y  z" >> output
+	echo "   | a b c d e f g h i j k l m n o p q r s t u v w x y z" >> output
 }
 
 work() {
@@ -86,7 +105,7 @@ ft_wait() {
 main() {
 	cmnd="awk 'END{print NR}' $file"
 	eval line=\`$cmnd\`
-	cmnd="wc -c $file | sed -e \"s/ .*//g\""
+	cmnd="wc -c $file | awk '{print \$1}'"
 	eval nb_c=\`$cmnd\`
 	nb_c=$(($nb_c - $line))
 	echo "file: $file line: $line number of letter:$nb_c"
