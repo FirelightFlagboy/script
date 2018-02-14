@@ -3,6 +3,7 @@
 file=""
 res=""
 gr=0
+g_file=""
 csv=0
 csv_file=""
 
@@ -15,13 +16,13 @@ usage() {
 	printf "langstat <dico file>\n"
 	echo "options:"
 	echo "-h --help								show option"
-	echo "-g --graphique-dysplay				dysplay as a graph"
+	echo "-g <FILE> --graphique-display=FILE				display as a graph"
 	echo "-f <FILE> --file=FILE					use the given file as dictionary"
 	echo "-c <FILE> --csv-output-file=FILE		ouput a csv format file"
 	exit 0
 }
 
-dysplay() {
+display() {
 	printf "done:\n$res\n"
 	exit 0
 }
@@ -41,44 +42,33 @@ create_line() {
 	for l in {a..z}; do
 		cmnd="printf \"$res\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | grep -i \"$l\" | sed \"s/[^0-9]*//g\""
 		eval cr=\`$cmnd\`
+		cr=$(($cr*100/$nb_c))
 		tab_l+=($cr)
 	done
-	echo "done nb"
-	for l in ${tab_l[@]}; do
-		echo "$l"
-	done
-	for i in {0..25}; do
-		echo "i:$i tab:${tab_l[$i]} nb_c:$nb_c"
-		tab_l[$i]=$((${tab_l[$i]}*100/$nb_c))
-	done
-	echo "done %"
-	for l in ${tab_l[@]}; do
-		echo "$l"
+	for l in {0..19}; do
+		array_line+=("")
+		pr=$((95-l*5))
+		for i in {0..25}; do
+			array_line[$l]="${array_line[$l]} "
+			if [ ${tab_l[$i]} -gt $pr ]; then
+				array_line[$l]="${array_line[$l]}█"
+			else
+				array_line[$l]="${array_line[$l]} "
+			fi
+		done
 	done
 }
 
 graphique() {
 	array_line=()
-	echo "" > output
+	echo "%  |" > $g_file
 	create_line
 	for i in {0..19}; do
-		case "$i" in
-			"0")
-				echo -n "100" >> output
-				;;
-			"9")
-				echo -n "50 " >> output
-				;;
-			"19")
-				echo -n "0  " >> output
-				;;
-			*)
-				echo -n "   " >> output
-				;;
-		esac
-		echo "|${array_line[$i]}" >> output
+		pr=$((100-i*5))
+		printf "%-3d" $pr >> $g_file
+		echo "|${array_line[$i]}" >> $g_file
 	done
-	echo "   | a b c d e f g h i j k l m n o p q r s t u v w x y z" >> output
+	echo "   | a b c d e f g h i j k l m n o p q r s t u v w x y z" >> $g_file
 }
 
 work() {
@@ -110,7 +100,7 @@ main() {
 	nb_c=$(($nb_c - $line))
 	echo "file: $file line: $line number of letter:$nb_c"
 	work
-	dysplay &
+	display &
 	pidd=$!
 	if [ $csv -eq 1 ]; then
 		create_cvs &
@@ -128,9 +118,21 @@ while test $# -gt 0; do
 		-h|--help)
 			usage
 			;;
-		-g|--graphique-dysplay)
+		-g)
+			shift
+			if test $# -gt 0; then
+				g_file=$1
+			else
+				error "no ouput file specified"
+			fi
 			gr=1
 			shift
+			;;
+		--graphique-output*)
+			g_file=`echo $1 | sed -e 's/^[^=]*=//g'`
+			if [ ${#g_file} -eq 0 ]; then
+				error "no filename suplied"
+			fi
 			;;
 		-f)
 			shift
