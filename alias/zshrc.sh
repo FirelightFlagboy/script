@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    zshrc                                              :+:      :+:    :+:    #
+#    zshrc.sh                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/02/14 09:44:09 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/02/17 09:06:19 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ alias salias="cat ~/script/alias/zshrc"
 alias vi="vim"
 alias emacs="vim"
 alias gcc="clang"
+alias temp="/opt/vc/bin/vcgencmd measure_temp"
+alias evssh="eval \"$(ssh-agent -s)\""
 
 #
 # personal export
@@ -41,4 +43,3 @@ export USER="fbenneto"
 export MAIL="fbenneto@student.42.fr"
 export MAIL_GIT="firelight.flagboy@gmail.com"
 export USER_GIT="FirelightFlagboy"
-alias temp="/opt/vc/bin/vcgencmd measure_temp"
