@@ -199,6 +199,7 @@ while test $# -gt 0; do
 	esac
 done
 
+echo "$SHELL"
 if [ ${#file} -eq 0 ]
 then
 	error "no file supplied"
