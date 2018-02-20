@@ -23,14 +23,14 @@ bad_arg()
 # function qui affiche l'usage' du script 'aka comme il marche'
 usage() {
 	printf "./langstat <dico file>\n"
-	echo "Warning this scripts must be launch with bash 4.0 or newer"
-	echo "make sure that you have bash 4.0 or newer with :"
-	echo "'bash --version'"
-	echo "options:"
-	echo "-h --help                           show option"
-	echo "-g <FILE> --graphique-display=FILE  display as a graph"
-	echo "-f <FILE> --file=FILE               use the given file as dictionary"
-	echo "-c <FILE> --csv-output-file=FILE    ouput a csv format file"
+	printf "\e[31mWarning this scripts must be launch with bash 4.0 or newer\e[0m\n"
+	printf "make sure that you have bash 4.0 or newer with :\n"
+	printf "'bash --version'\n"
+	printf "options:\n"
+	printf "%s\n""-h --help                           show option"
+	printf "%s\n""-g <FILE> --graphique-display=FILE  display as a graph"
+	printf "%s\n""-f <FILE> --file=FILE               use the given file as dictionary"
+	printf "%s\n""-c <FILE> --csv-output-file=FILE    ouput a csv format file"
 	exit 0
 }
 
@@ -63,7 +63,7 @@ create_line() {
 		cr=$(($cr*100/$nb_c))
 		tab_l+=($cr)
 	done
-	for l in {0..19}; do
+	for l in {0..19}; do # boucle qui permet de remplir le tableau colonne par colonne, ligne par ligne
 		array_line+=("")
 		pr=$((95-l*5))
 		for i in {0..25}; do
