@@ -24,6 +24,8 @@ bad_arg()
 usage() {
 	printf "./langstat <dico file>\n"
 	echo "Warning this scripts must be launch with bash 4.0 or newer"
+	echo "make sure that you have bash 4.0 or newer with :"
+	echo "'bash --version'"
 	echo "options:"
 	echo "-h --help                           show option"
 	echo "-g <FILE> --graphique-display=FILE  display as a graph"
