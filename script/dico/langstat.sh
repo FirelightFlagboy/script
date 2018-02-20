@@ -182,6 +182,7 @@ while test $# -gt 0; do
 			shift
 			;;
 		*)
+			echo "here"
 			file=$1
 			break
 			;;
