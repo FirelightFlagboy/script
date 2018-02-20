@@ -124,6 +124,7 @@ while test $# -gt 0; do
 				case "$1" in
 					-*)
 						error "an option cannot be a file"
+						;;
 					*)
 						g_file=$1
 						;;
