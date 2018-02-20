@@ -140,6 +140,7 @@ while test $# -gt 0; do
 			if [ ${#g_file} -eq 0 ]; then
 				error "no filename suplied"
 			fi
+			gr=1
 			shift
 			;;
 		-f)
