@@ -7,8 +7,6 @@ g_file=""
 csv=0
 csv_file=""
 
-echo "$0"
-
 # function qui affiche tout ces argument et termine le programme
 error() {
 	echo $*
