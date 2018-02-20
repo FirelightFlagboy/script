@@ -121,7 +121,13 @@ while test $# -gt 0; do
 		-g)
 			shift
 			if test $# -gt 0; then
-				g_file=$1
+				case "$1" in
+					-*)
+						error "an option cannot be a file"
+					*)
+						g_file=$1
+						;;
+				esac
 			else
 				error "no ouput file specified"
 			fi
@@ -137,7 +143,14 @@ while test $# -gt 0; do
 		-f)
 			shift
 			if test $# -gt 0; then
-				file=$1
+				case "$1" in
+					-*)
+						error "an option cannot be a file"
+						;;
+					*)
+						file=$1
+						;;
+				esac
 			else
 				error "no input file specified"
 			fi
