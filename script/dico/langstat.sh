@@ -9,26 +9,39 @@ csv_file=""
 
 echo "$0"
 
+# function qui affiche tout ces argument et termine le programme
 error() {
 	echo $*
 	exit 1
 }
 
+# function qui gere le cas ou l'utilisateur entre une mauvaise option
+bad_arg()
+{
+	echo $*
+	usage()
+}
+
+# function qui affiche l'usage' du script 'aka comme il marche'
 usage() {
 	printf "langstat <dico file>\n"
 	echo "options:"
-	echo "-h --help								show option"
-	echo "-g <FILE> --graphique-display=FILE				display as a graph"
-	echo "-f <FILE> --file=FILE					use the given file as dictionary"
-	echo "-c <FILE> --csv-output-file=FILE		ouput a csv format file"
+	echo "-h --help                           show option"
+	echo "-g <FILE> --graphique-display=FILE  display as a graph"
+	echo "-f <FILE> --file=FILE               use the given file as dictionary"
+	echo "-c <FILE> --csv-output-file=FILE    ouput a csv format file"
 	exit 0
 }
 
+# function qui affiche le resultat du script
 display() {
 	printf "done:\n$res\n"
 	exit 0
 }
 
+# fonction qui creer le fichier csv,
+# les fichiers .csv sont des fichier compatible 
+# avec les tableur 'aka google sheet par exemple'
 create_cvs() {
 	cmnd="printf \"$res\" | sed -e \"s/ - /-/g\" | sed -e \"s/\([a-zA-Z]\)/\1+/g\" | tr '+' '\n' | sed -e \"s/^[ ]*//\" | sed -e \"s/^\(.*\)-\(.*\)$/\2-\1/g\""
 	eval res=\`$cmnd\`
@@ -39,6 +52,8 @@ create_cvs() {
 	exit 0
 }
 
+# permet de creer le tableau utilise par la fonction 'graphique()'
+#
 create_line() {
 	tab_l=()
 	for l in {a..z}; do
@@ -61,6 +76,8 @@ create_line() {
 	done
 }
 
+# permet de creer le graphique est de le mettre dans le fichier choisi
+# 
 graphique() {
 	array_line=()
 	echo "%  |" > $g_file
@@ -73,6 +90,8 @@ graphique() {
 	echo "   | a b c d e f g h i j k l m n o p q r s t u v w x y z" >> $g_file
 }
 
+# fonction principale qui fait tout le travail pour obtenir
+# les occurence des lettres dans le fichier choisi
 work() {
 	for l in {a..z}
 	do
@@ -84,6 +103,8 @@ work() {
 	eval res=\`$cmnd\`
 }
 
+# fonction qui attend que toute les fonction forker
+# soit terminer avant de mettre fin au programme
 ft_wait() {
 	wait $pidd
 	if [ $csv -eq 1 ]; then
@@ -94,6 +115,8 @@ ft_wait() {
 	fi
 }
 
+# fonction qui appele les diferente fonction
+# est affiche des information sur le fichier selectionner
 main() {
 	cmnd="awk 'END{print NR}' $file"
 	eval line=\`$cmnd\`
@@ -102,8 +125,8 @@ main() {
 	nb_c=$(($nb_c - $line))
 	echo "file: $file line: $line number of letter:$nb_c"
 	work
-	display &
-	pidd=$!
+	display &	# le '&' a la fin signifi que l'on fork la fonction
+	pidd=$!		# le '$!' permet d'obtenir le pid du precedent fork
 	if [ $csv -eq 1 ]; then
 		create_cvs &
 		pidc=$!
@@ -115,6 +138,10 @@ main() {
 	ft_wait
 }
 
+#
+# une boucle qui permet de recuprer les differents parametre relatif au script
+# regarder usage() ou faite './langstat.sh -h' pour voir les options disponible
+#
 while test $# -gt 0; do
 	case "$1" in
 		-h|--help)
@@ -193,18 +220,25 @@ while test $# -gt 0; do
 			fi
 			shift
 			;;
+		-*)
+			bad_arg "error :" $1 " : option unknown"
+			;;
 		*)
-			echo "here"
 			file=$1
-			break
+			shift
 			;;
 	esac
 done
+
+# verifie que la variable 'file' a bien ete affecter a une valeur
 
 if [ ${#file} -eq 0 ]
 then
 	error "no file supplied"
 fi
+
+# verifie si 'file' est bien un fichier
+
 if [ -f $file ]
 then
 	main $file
