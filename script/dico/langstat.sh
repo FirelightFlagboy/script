@@ -195,7 +195,7 @@ then
 fi
 if [ -f $file ]
 then
-	main $1
+	main $file
 else
-	error "$1 not a file"
+	error "$file not a file"
 fi
