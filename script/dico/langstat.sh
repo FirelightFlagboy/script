@@ -140,6 +140,7 @@ while test $# -gt 0; do
 			if [ ${#g_file} -eq 0 ]; then
 				error "no filename suplied"
 			fi
+			shift
 			;;
 		-f)
 			shift
@@ -162,15 +163,23 @@ while test $# -gt 0; do
 			if [ ${#file} -eq 0 ]; then
 				error "no filename suplied"
 			fi
+			shift
 			;;
 		-c)
 			shift
 			if test $# -gt 0; then
-				csv=1
-				csv_file=$1
+					case "$1" in
+					-*)
+						error "an option cannot be a file"
+						;;
+					*)
+						csv_file=$1
+						;;
+				esac
 			else
 				error "no output file specified"
 			fi
+			csv=1
 			shift
 			;;
 		--csv-output-file*)
