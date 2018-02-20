@@ -7,7 +7,7 @@ g_file=""
 csv=0
 csv_file=""
 
-echo "$SHELL"
+echo "$0"
 
 error() {
 	echo $*
