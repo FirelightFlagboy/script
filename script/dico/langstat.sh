@@ -113,6 +113,9 @@ main() {
 	ft_wait
 }
 
+echo "$SHELL"
+
+
 while test $# -gt 0; do
 	case "$1" in
 		-h|--help)
@@ -199,7 +202,6 @@ while test $# -gt 0; do
 	esac
 done
 
-echo "$SHELL"
 if [ ${#file} -eq 0 ]
 then
 	error "no file supplied"
