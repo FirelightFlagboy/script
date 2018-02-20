@@ -7,6 +7,8 @@ g_file=""
 csv=0
 csv_file=""
 
+echo "$SHELL"
+
 error() {
 	echo $*
 	exit 1
@@ -112,9 +114,6 @@ main() {
 	fi
 	ft_wait
 }
-
-echo "$SHELL"
-
 
 while test $# -gt 0; do
 	case "$1" in
