@@ -22,7 +22,8 @@ bad_arg()
 
 # function qui affiche l'usage' du script 'aka comme il marche'
 usage() {
-	printf "langstat <dico file>\n"
+	printf "./langstat <dico file>\n"
+	echo "Warning this scripts must be launch with bash 4.0 or newer"
 	echo "options:"
 	echo "-h --help                           show option"
 	echo "-g <FILE> --graphique-display=FILE  display as a graph"
