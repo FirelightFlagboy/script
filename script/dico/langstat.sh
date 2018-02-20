@@ -19,7 +19,7 @@ error() {
 bad_arg()
 {
 	echo $*
-	usage()
+	usage
 }
 
 # function qui affiche l'usage' du script 'aka comme il marche'
