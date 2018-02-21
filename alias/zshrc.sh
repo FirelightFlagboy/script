@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/02/17 14:33:46 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/02/21 11:37:56 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ alias ptop="bash ~/script/script/top_name.sh"
 # personal export
 #
 
+export CDPATH="$HOME:/:.:.."
 export USER="fbenneto"
 export MAIL="fbenneto@student.42.fr"
 export MAIL_GIT="firelight.flagboy@gmail.com"
