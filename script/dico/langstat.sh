@@ -96,7 +96,7 @@ graphique() {
 work() {
 	for l in {a..z}
 	do
-		cmnd="fgrep -oi \"$l\" $file | wc -l"
+		cmnd="fgrep -i \"$l\" $file | wc -l"
 		eval r=\`$cmnd\`
 		res="$r - $l\n$res"
 	done
