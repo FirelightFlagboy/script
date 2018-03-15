@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/02/22 11:29:21 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/15 14:36:28 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@
 # personal alias
 #
 
+alias vsc="open -a Visual\ Studio\ Code"
 alias 42checker="bash ~/42FileChecker/42FileChecker.sh"
 alias grademe="bash ~/Libftest/grademe.sh"
 alias quote="bash ~/script/script/quotilette.sh"
