@@ -6,11 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2018/02/21 11:37:56 by fbenneto         ###   ########.fr        #
-=======
-#    Updated: 2018/02/18 22:07:42 by fbenneto         ###   ########.fr        #
->>>>>>> 0cf60a64e4d2a63f853b4d4396436cbd481c0a89
+#    Updated: 2018/02/22 11:29:21 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,17 +34,14 @@ alias emacs="vim"
 alias gcc="clang"
 alias temp="/opt/vc/bin/vcgencmd measure_temp"
 alias evssh="eval \"$(ssh-agent -s)\""
-<<<<<<< HEAD
 alias ptop="bash ~/script/script/top_name.sh"
-=======
 alias maj="~/script/script/maj.bash"
 
->>>>>>> 0cf60a64e4d2a63f853b4d4396436cbd481c0a89
 #
 # personal export
 #
 
-export CDPATH="$HOME:/:.:.."
+export CDPATH="$HOME:/:.:..:$HOME/repo"
 export USER="fbenneto"
 export MAIL="fbenneto@student.42.fr"
 export MAIL_GIT="firelight.flagboy@gmail.com"
