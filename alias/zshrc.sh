@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/15 14:36:28 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/03/24 09:47:27 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ alias compilette="bash ~/script/script/compilette.sh"
 alias killtask="bash ~/script/script/killtask.sh"
 alias cl="clear"
 alias sl="cd ~/sl; ./sl; cd -"
-alias norme_grep="norminette | grep -B 1 'Error\|Warning'"
 alias grot="groutine"
 alias gitc="bash ~/script/script/gitc.sh"
 alias salias="cat ~/script/alias/zshrc"
@@ -39,10 +38,25 @@ alias ptop="bash ~/script/script/top_name.sh"
 alias maj="~/script/script/maj.bash"
 
 #
+# Function
+#
+
+norme_grep()
+{
+	printf "Norme on folder $PWD\n"
+	cmnd="find $PWD -name '*.c' -o -name '*.h'"
+	eval res=\`$cmnd\`
+	for p in $res
+	do
+		norminette $p | grep -i -B 1 "Warning\|Error"
+	done
+}
+
+##
 # personal export
 #
 
-export CDPATH="$HOME:/:.:..:$HOME/repo"
+export CDPATH="$HOME:$HOME/repo:/:.:.."
 export USER="fbenneto"
 export MAIL="fbenneto@student.42.fr"
 export MAIL_GIT="firelight.flagboy@gmail.com"
