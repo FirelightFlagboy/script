@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/05 16:34:11 by fbenneto          #+#    #+#              #
-#    Updated: 2018/03/24 10:01:46 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/03 10:07:33 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ alias temp="/opt/vc/bin/vcgencmd measure_temp"
 alias evssh="eval \"$(ssh-agent -s)\""
 alias ptop="bash ~/script/script/top_name.sh"
 alias maj="~/script/script/maj.bash"
-
+alias search="bash ~/script/script/search.bash"
 #
 # Function
 #
