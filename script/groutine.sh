@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 11:51:22 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 11:53:56 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ BOL="\e[1m"
 CYA="\e[36m"
 GRE="\e[32m"
 SEP="\n*****************************************\n"
+CATH_WORD="modified\|new file\|deleted\|rename"
 
 ft_end()
 {
@@ -44,7 +45,7 @@ printf "adding to repository\n\n\tgit add -A\n"
 git add -A
 printf "\n\tgit status :\n"
 git status
-cmnd="git status | grep -i 'modified\|new file' | tr '\t' '|' | tr '\n' '|' | sed -e 's/|/;  /g' | sed -e 's/\;  $//'"
+cmnd="git status | grep -i '$CATH_WORD' | tr '\t' '|' | tr '\n' '|' | tr -s '|' | sed -e 's/|/;  /g' | sed -e 's/\;  $//'"
 eval res=\`$cmnd\`
 echo
 
