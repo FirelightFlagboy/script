@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 11:42:26 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 11:51:22 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,11 @@ printf "adding to repository\n\n\tgit add -A\n"
 git add -A
 printf "\n\tgit status :\n"
 git status
-cmnd="git status | grep -i 'modified\|new file' | tr -d '\t'"
+cmnd="git status | grep -i 'modified\|new file' | tr '\t' '|' | tr '\n' '|' | sed -e 's/|/;  /g' | sed -e 's/\;  $//'"
 eval res=\`$cmnd\`
 echo
 
-res="$1\n$res"
+res="$1$res"
 printf "$res\n"
 
 printf "$BOL$RED"
