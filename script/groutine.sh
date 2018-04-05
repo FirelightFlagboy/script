@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 15:50:25 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 15:51:56 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ cmnd="git status | grep -i '$CATH_WORD'"
 eval up=\`$cmnd\`
 printf "$up\n"
 
-res="$1"
+res="$1 :"
 
 # get each value for modifier, new file, deleted, rename
 # add all modified file
