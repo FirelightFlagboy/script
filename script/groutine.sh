@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 15:51:56 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 16:04:33 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,14 @@ ft_end()
 	exit 0
 }
 
-if [ -z "$1" ]
-	then
-		printf "no argument supplied, you must enter a pharse for 'git commit -m'\n"
-		exit 1
-fi
-
 printf $SEP
+if [ -z "$1" ]
+then
+	printf "we use default message for \033[33;1m'git commit -m'\033[0m\n"
+	res=""
+else
+	res="$1 :"
+fi
 
 # move to the root of the repo
 cd $(git rev-parse --show-toplevel || echo ".")
@@ -48,15 +49,10 @@ git status
 #  | tr '\t' '|' | tr '\n' '|' | tr -s '|' | sed -e 's/|/;  /g' | sed -e 's/\;  $//'
 cmnd="git status | grep -i '$CATH_WORD'"
 eval up=\`$cmnd\`
-printf "$up\n"
-
-res="$1 :"
 
 # get each value for modifier, new file, deleted, rename
 # add all modified file
 modified=`printf "$up" | grep -i "modified" | awk '{print $2}' | tr '\n' '|' | sed -e 's/|/; /g; s/\; $//'`
-printf "modified:\n$modified\n"
-
 if [ ${#modified} != 0 ]
 then
 	res="$res [modified :$modified]"
@@ -64,8 +60,6 @@ fi
 
 # add all rename file
 rename=`printf "$up" | grep -i 'rename' | tr -d '\t' | sed -e 's/ *renamed: *//g' | tr '\n' '|'  | sed -e 's/|/; /g; s/\; $//'`
-printf "rename:\n$rename\n"
-
 if [ ${#rename} != 0 ]
 then
 	res="$res [rename :$rename]"
@@ -73,8 +67,6 @@ fi
 
 # add all new file
 new_file=`printf "$up" | grep -i 'new file' | awk '{print $3}' | tr '\n' '|' | sed -e 's/|/; /g; s/\; $//'`
-printf "new_file:\n$new_file\n"
-
 if [ ${#new_file} != 0 ]
 then
 	res="$res [new_file :$new_file]"
@@ -82,13 +74,13 @@ fi
 
 # add all deleted file
 deleted=`printf "$up" | grep -i 'deleted' | awk '{print $2}' | tr '\n' '|'  | sed -e 's/|/; /g; s/\; $//'`
-printf "deleted:\n$deleted\n"
-
 if [ ${#deleted} != 0 ]
 then
 	res="$res [deleted :$deleted]"
 fi
 
+# remove beging and ending space
+res=`printf "$res" | sed 's/^ *//g'`
 printf "$BOL$RED"
 printf "\tyou are going to push with this phrase >>$CYA$BOL"
 printf "$res"
