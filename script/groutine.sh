@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 16:05:26 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 16:06:45 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,13 @@ ft_end()
 }
 
 printf $SEP
-if [ -z "$1" ]
+tmp="${@:1}"
+if [ -z "$tmp" ]
 then
 	printf "we use default message for \033[33;1m'git commit -m'\033[0m\n"
 	res=""
 else
-	res="$1 :"
+	res="$tmp :"
 fi
 
 # move to the root of the repo
