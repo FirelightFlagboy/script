@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 16:04:33 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/05 16:05:26 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ then
 fi
 
 # remove beging and ending space
-res=`printf "$res" | sed 's/^ *//g'`
+res=`printf "$res" | sed 's/^ *//g; s/ *$//g'`
 printf "$BOL$RED"
 printf "\tyou are going to push with this phrase >>$CYA$BOL"
 printf "$res"
