@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/05 16:06:45 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/06 09:14:09 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,10 @@ eval up=\`$cmnd\`
 modified=`printf "$up" | grep -i "modified" | awk '{print $2}' | tr '\n' '|' | sed -e 's/|/; /g; s/\; $//'`
 if [ ${#modified} != 0 ]
 then
+	if [ ${#modified} -gt 75 ]
+	then
+		modified=`printf "%.75s ..." "$modified"`
+	fi
 	res="$res [modified :$modified]"
 fi
 
@@ -63,6 +67,10 @@ fi
 rename=`printf "$up" | grep -i 'rename' | tr -d '\t' | sed -e 's/ *renamed: *//g' | tr '\n' '|'  | sed -e 's/|/; /g; s/\; $//'`
 if [ ${#rename} != 0 ]
 then
+	if [ ${#rename} -gt 75 ]
+	then
+		rename=`printf "%.75s ..." "$rename"`
+	fi
 	res="$res [rename :$rename]"
 fi
 
@@ -70,6 +78,10 @@ fi
 new_file=`printf "$up" | grep -i 'new file' | awk '{print $3}' | tr '\n' '|' | sed -e 's/|/; /g; s/\; $//'`
 if [ ${#new_file} != 0 ]
 then
+	if [ ${#new_file} -gt 75 ]
+	then
+		new_file=`printf "%.75s ..." "$new_file"`
+	fi
 	res="$res [new_file :$new_file]"
 fi
 
@@ -77,6 +89,10 @@ fi
 deleted=`printf "$up" | grep -i 'deleted' | awk '{print $2}' | tr '\n' '|'  | sed -e 's/|/; /g; s/\; $//'`
 if [ ${#deleted} != 0 ]
 then
+	if [ ${#deleted} -gt 75 ]
+	then
+		deleted=`printf "%.75s ..." "$deleted"`
+	fi
 	res="$res [deleted :$deleted]"
 fi
 
