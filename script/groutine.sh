@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/12 10:19:40 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/06 09:14:09 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/05/09 16:08:31 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ fi
 
 # move to the root of the repo
 cd $(git rev-parse --show-toplevel || echo ".")
+
+rm .git/index.lock 2>&-
 
 printf "adding to repository\n\n\tgit add -A\n"
 git add -A
@@ -110,8 +112,12 @@ if [ $rep == 'n' ]
 then
 	ft_end
 fi
+
+rm .git/index.lock 2>&-
+
 printf "\n$GRE\tgit commit -m '$res'$NC\n\n"
 git commit -m "$res"
 printf "\n$GRE\tgit push to $repo$NC\n\n"
+rm .git/index.lock 2>&-
 git push
 ft_end

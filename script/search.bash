@@ -6,7 +6,7 @@
 #    By: fbenneto <fbenneto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/03 10:03:13 by fbenneto          #+#    #+#              #
-#    Updated: 2018/04/03 11:03:28 by fbenneto         ###   ########.fr        #
+#    Updated: 2018/04/18 09:46:36 by fbenneto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,5 +64,5 @@ do
 	dir_clean="$dir_clean $res"
 done
 
-cmnd="grep -nri $str_to_search $dir_to_search | grep $str_to_search | tr '\t' ' ' | tr -s ' ' | column -t -s : | grep --color=auto $str_to_search"
+cmnd="grep -nri $str_to_search $dir_to_search | grep $str_to_search | tr '\t' ' ' | tr -s ' ' | column -t -s : | grep -i --color=auto $str_to_search"
 eval $cmnd
